@@ -1,6 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//enum for seed types
+public enum SeedType
+{
+    Daisy,
+    GlowFlower,
+    Rose,
+    Daffodil,
+}
 
 public class Board : MonoBehaviour
 {
@@ -18,7 +26,8 @@ public class Board : MonoBehaviour
     public GameObject tileSelector;
     public Tile selectedTile;
     public ToolBar toolBar;
-    
+    private int[][] plantArray;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +37,11 @@ public class Board : MonoBehaviour
         {
             tiles[i] = new GameObject[height];
             tileScripts[i] = new Tile[height];
+        }
+        int[][] plantArray = new int[width][];
+        for (int i = 0; i < width; i++)
+        {
+            plantArray[i] = new int[height];
         }
         //load level
         LoadLevel();
@@ -51,11 +65,21 @@ public class Board : MonoBehaviour
     }
     void GeneratePlantArray()
     {
-        //TODO: generate plant array
+        
+        //fill the plant array with the seed types
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                plantArray[i][j] = tileScripts[i][j].GetSeedType();
+            }
+        }
     }
     void TestForSpells()
     {
+        GeneratePlantArray();
         //call each spells test function
+        TestForSpell1();
 
     }
     void TestForSpell1()
@@ -65,7 +89,46 @@ public class Board : MonoBehaviour
 
     void GrowPlants()
     {
+        GeneratePlantArray();
         //grow plants according to rules
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                switch (plantArray[i][j])
+                {
+                    case (int)SeedType.Daisy:
+                        //grow daisies
+                        tileScripts[i][j].Grow();
+                        break;
+                    case (int)SeedType.GlowFlower:
+                        //grow glow flowers
+                        //check the surrounding tiles for the number of non- -1 tiles
+                        int count = 0;
+                        count = i > 0 && plantArray[i - 1][j] != -1 ? count + 1 : count;
+                        count = i < width - 1 && plantArray[i + 1][j] != -1 ? count + 1 : count;
+                        count = j > 0 && plantArray[i][j - 1] != -1 ? count + 1 : count;
+                        count = j < height - 1 && plantArray[i][j + 1] != -1 ? count + 1 : count;
+                        count = j > 0 && i > 0 && plantArray[i - 1][j - 1] != -1 ? count + 1 : count;
+                        count = j < height - 1 && i < width - 1 && plantArray[i + 1][j + 1] != -1 ? count + 1 : count;
+                        count = j > 0 && i < width - 1 && plantArray[i + 1][j - 1] != -1 ? count + 1 : count;
+                        count = j < height - 1 && i > 0 && plantArray[i - 1][j + 1] != -1 ? count + 1 : count;
+                        
+                        if (count == 1)
+                        {
+                            tileScripts[i][j].Grow();
+                        }
+                        break;
+                    case (int)SeedType.Rose:
+                        //grow roses
+                        tileScripts[i][j].Grow();
+                        break;
+                    case (int)SeedType.Daffodil:
+                        //grow daffodils
+                        break;
+                }
+            }
+        }
     }
 
     public void SelectTile(Transform tilePosition, Tile tileToSelect)

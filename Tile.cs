@@ -46,6 +46,10 @@ public class Tile : MonoBehaviour
         {
             return seedType;
         }
+        else
+        {
+            return -1;
+        }
     }
 
     public void Grow()
