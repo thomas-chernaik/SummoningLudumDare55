@@ -16,7 +16,8 @@ public enum TileType
 [RequireComponent(typeof(BoxCollider2D))]
 public class Tile : MonoBehaviour
 {
-    public Board board;
+    public GameObject tillParticles;
+    public GameObject plantParticles;
     public TileType type = TileType.Dead;
     public int defaultType = 0;
     public int deadType = 0;
@@ -27,6 +28,7 @@ public class Tile : MonoBehaviour
     public List<Sprite> seededSprites;
     public List<Sprite> grownSprites;
     public List<Sprite> drainedSprites;
+    private Board board;
     private SpriteRenderer spriteRenderer;
     private TileType prevType;
 
@@ -39,6 +41,10 @@ public class Tile : MonoBehaviour
         BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
         boxCollider.size = spriteRenderer.size * 2;
         UpdateTile();
+    }
+    public void SetBoard(Board board)
+    {
+        this.board = board;
     }
     public int GetSeedType(bool grown)
     {
@@ -98,6 +104,14 @@ public class Tile : MonoBehaviour
             type = TileType.Tilled;
         }
     }
+    void DeactivateTillParticles()
+    {
+        tillParticles.SetActive(false);
+    }
+    void DeactivatePlantParticles()
+    {
+        plantParticles.SetActive(false);
+    }
 
     void UpdateTile()
     {
@@ -112,9 +126,17 @@ public class Tile : MonoBehaviour
                 break;
             case TileType.Tilled:
                 spriteRenderer.sprite = tilledSprite;
+                //enable till particles
+                tillParticles.SetActive(true);
+                //set to deactive after 0.5 seconds
+                Invoke("DeactivateTillParticles", 0.5f);
                 break;
             case TileType.Seeded:
                 spriteRenderer.sprite = seededSprites[seedType];
+                //enable plant particles
+                plantParticles.SetActive(true);
+                //set to deactive after 0.5 seconds
+                Invoke("DeactivatePlantParticles", 0.5f);
                 break;
             case TileType.Grown:
                 spriteRenderer.sprite = grownSprites[seedType];

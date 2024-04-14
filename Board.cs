@@ -62,7 +62,7 @@ public class Board : MonoBehaviour
                 {
                     tiles[i][j] = Instantiate(tilePrefab, new Vector3(i * tileSize + offset.x, j * tileSize + offset.y, 0), Quaternion.identity);
                     tileScripts[i][j] = tiles[i][j].GetComponent<Tile>();
-                    tileScripts[i][j].board = this;
+                    tileScripts[i][j].SetBoard(this);
                 }
             }
 
@@ -87,7 +87,7 @@ public class Board : MonoBehaviour
         GeneratePlantArray(true);
         //call each spells test function
         TestForSpell1();
-
+        TestForSpell2();
     }
     bool TestForItemsAtPositions(Vector2[] positions, int item)
     {
@@ -189,7 +189,6 @@ public class Board : MonoBehaviour
                         return;
                     }
                 }
-
             }
         }
     }
