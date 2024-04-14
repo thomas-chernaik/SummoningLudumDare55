@@ -13,7 +13,6 @@ public enum TileType
     Drained
 }
 [RequireComponent(typeof(SpriteRenderer))]
-[RequireComponent(typeof(BoxCollider2D))]
 public class Tile : MonoBehaviour
 {
     public GameObject tillParticles;
@@ -39,7 +38,8 @@ public class Tile : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         //set the box collider to be the same size as the sprite
         BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
-        boxCollider.size = spriteRenderer.size * 2;
+        if(boxCollider != null)
+            boxCollider.size = spriteRenderer.size;
         UpdateTile();
     }
     public void SetBoard(Board board)
@@ -154,14 +154,6 @@ public class Tile : MonoBehaviour
         {
             UpdateTile();
             prevType = type;
-        }
-        //check if the mouse is over the tile
-
-        Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
-        if (hit.collider != null && hit.collider.gameObject == gameObject)
-        {
-            board.SelectTile(transform, this);
-        }        
+        }    
     }
 }

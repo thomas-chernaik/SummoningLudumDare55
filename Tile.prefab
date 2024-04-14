@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4375647216297259137}
   - component: {fileID: 2679029014637315450}
-  - component: {fileID: 5958123640748360246}
   - component: {fileID: 1016894482674572671}
   m_Layer: 0
   m_Name: Tile
@@ -88,32 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5958123640748360246
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4291089215792563213}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
-  m_EdgeRadius: 0
 --- !u!114 &1016894482674572671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,23 +107,23 @@ MonoBehaviour:
   seedType: 0
   defaultSprites: []
   deadSprites:
-  - {fileID: 21300000, guid: 199fdbe0fde4f8847bd3e3d44e6ee4bd, type: 3}
-  tilledSprite: {fileID: 21300000, guid: 664ecbf88f3408d488135c8cd25bca4b, type: 3}
+  - {fileID: 21300000, guid: d7472dcedc8e4a14d95cd39f2536a700, type: 3}
+  tilledSprite: {fileID: 21300000, guid: 5bf5dd95961e8ff42bb5604095bd51d8, type: 3}
   seededSprites:
-  - {fileID: 21300000, guid: 76ca9c16ac936ad47a5b6be2a2b8829e, type: 3}
-  - {fileID: 21300000, guid: 3794a15012acf384fb55b34495bc458f, type: 3}
-  - {fileID: 21300000, guid: fde98d1077a383b428903b5808d48569, type: 3}
-  - {fileID: 21300000, guid: 3afc6126cf21b204fbf3f7db6e56a0c8, type: 3}
+  - {fileID: 1040523896, guid: fde2906ee49981d46904bed244a41df3, type: 3}
+  - {fileID: 487921521, guid: fde2906ee49981d46904bed244a41df3, type: 3}
+  - {fileID: -1570562159, guid: fde2906ee49981d46904bed244a41df3, type: 3}
+  - {fileID: 1438120134, guid: fde2906ee49981d46904bed244a41df3, type: 3}
   grownSprites:
-  - {fileID: 21300000, guid: a2a78f5960496704caed3416c377bde0, type: 3}
-  - {fileID: 21300000, guid: 6a8c0d17f731708448c2ec232b80832f, type: 3}
-  - {fileID: 21300000, guid: ede98dfd6894c8d4b8957042ce39bcb8, type: 3}
-  - {fileID: 21300000, guid: 357d0a0231237374b98f71a415261931, type: 3}
+  - {fileID: -381924599, guid: fde2906ee49981d46904bed244a41df3, type: 3}
+  - {fileID: 1559032190, guid: fde2906ee49981d46904bed244a41df3, type: 3}
+  - {fileID: -1712392824, guid: fde2906ee49981d46904bed244a41df3, type: 3}
+  - {fileID: 1191627964, guid: fde2906ee49981d46904bed244a41df3, type: 3}
   drainedSprites:
-  - {fileID: 21300000, guid: 29389af0cf5d4c441971f50e721b4605, type: 3}
-  - {fileID: 21300000, guid: f5abcf7896193a046b512b979c588758, type: 3}
-  - {fileID: 21300000, guid: a16e44b973efd814c88354a180c15809, type: 3}
-  - {fileID: 21300000, guid: 4fe7fc7239a5c6641b50584ee8429ac5, type: 3}
+  - {fileID: -31509286, guid: fde2906ee49981d46904bed244a41df3, type: 3}
+  - {fileID: -1645235134, guid: fde2906ee49981d46904bed244a41df3, type: 3}
+  - {fileID: -877588488, guid: fde2906ee49981d46904bed244a41df3, type: 3}
+  - {fileID: 807804207, guid: fde2906ee49981d46904bed244a41df3, type: 3}
 --- !u!1 &6100378092362507835
 GameObject:
   m_ObjectHideFlags: 0

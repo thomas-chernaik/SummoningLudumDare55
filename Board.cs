@@ -359,10 +359,13 @@ public class Board : MonoBehaviour
 
     public void SelectTile(Transform tilePosition, Tile tileToSelect)
     {
+        if(selectedTile == tileToSelect)
+        {
+            return;
+        }
         //move the tile selector to the selected tile
         tileSelector.transform.position = tilePosition.position - transform.forward;
         tileSelector.transform.rotation = tilePosition.rotation;
-        tileSelector.transform.localScale = tilePosition.localScale;
         //set the selected tile
         selectedTile = tileToSelect;
     }
@@ -370,7 +373,7 @@ public class Board : MonoBehaviour
     void ManageCommands()
     {
         //if the player clicks the left mouse button
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && selectedTile != null)
         {
             //get the thing selected in the toolbar
             int selectedItem = toolBar.selectedItem;
@@ -384,11 +387,36 @@ public class Board : MonoBehaviour
             {
                 selectedTile.Plant(selectedItem - 1);
             }
+            //animate the selector
+            tileSelector.GetComponent<Animator>().SetTrigger("Select");
         }
+    }
+
+    //calculate the tile the mouse is over
+    void CalculateSelectedTile()
+    {
+        //get the mouse position
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //calculate the tile position
+        int x = Mathf.FloorToInt((mousePosition.x - offset.x + tileSize / 2) / tileSize);
+        int y = Mathf.FloorToInt((mousePosition.y - offset.y + tileSize / 2) / tileSize);
+        //if the tile is within the bounds of the board
+        if (x >= 0 && x < width && y >= 0 && y < height)
+        {
+            //select the tile
+            SelectTile(tiles[x][y].transform, tileScripts[x][y]);
+        }
+        else
+        {
+            //deselect the tile
+            selectedTile = null;
+        }
+
     }
 
     void LateUpdate()
     {
+        CalculateSelectedTile();
         ManageCommands();
         if(Input.GetKeyDown(KeyCode.G))
         {
