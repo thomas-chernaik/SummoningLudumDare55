@@ -41,6 +41,24 @@ public class Board : MonoBehaviour
 
         }
     }
+    void GeneratePlantArray()
+    {
+        //TODO: generate plant array
+    }
+    void TestForSpells()
+    {
+        //call each spells test function
+
+    }
+    void TestForSpell1()
+    {
+        //test for spell 1
+    }
+
+    void GrowPlants()
+    {
+        //grow plants according to rules
+    }
 
     // Update is called once per frame
     void Update()
