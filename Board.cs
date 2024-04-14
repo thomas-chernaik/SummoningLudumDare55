@@ -5,7 +5,7 @@ using UnityEngine;
 public enum SeedType
 {
     Daisy,
-    GlowFlower,
+    GlowBerry,
     Rose,
     Daffodil,
 }
@@ -27,6 +27,11 @@ public class Board : MonoBehaviour
     public Tile selectedTile;
     public ToolBar toolBar;
     private int[][] plantArray;
+    //demons
+    public GameObject demon1;
+    public GameObject demon2;
+    public GameObject demon3;
+    public GameObject demon4;
 
     // Start is called before the first frame update
     void Start()
@@ -63,7 +68,7 @@ public class Board : MonoBehaviour
 
         }
     }
-    void GeneratePlantArray()
+    void GeneratePlantArray(bool grown)
     {
         //print plant array
 
@@ -73,25 +78,125 @@ public class Board : MonoBehaviour
         {
             for (int j = 0; j < height; j++)
             {
-                plantArray[i][j] = tileScripts[i][j].GetSeedType();
+                plantArray[i][j] = tileScripts[i][j].GetSeedType(grown);
             }
         }
     }
     void TestForSpells()
     {
-        GeneratePlantArray();
+        GeneratePlantArray(true);
         //call each spells test function
         TestForSpell1();
 
     }
+    bool TestForItemsAtPositions(Vector2[] positions, int item)
+    {
+        foreach(Vector2 position in positions)
+        {
+            if (position.x >= 0 && position.x < width && position.y >= 0 && position.y < height)
+            {
+                if (plantArray[(int)position.x][(int)position.y] != item)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    void DrainAtPositions(Vector2[] positions)
+    {
+        foreach (Vector2 position in positions)
+        {
+            tileScripts[(int)position.x][(int)position.y].Drain();
+        }
+    }
     void TestForSpell1()
     {
+        bool spell1 = false;
         //test for spell 1
+        for (int i=0; i < width; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                spell1 = true;
+                Vector2 tilePosition = new Vector2(i, j);
+                //if the tile is a glow berry
+                if (plantArray[i][j] == (int)SeedType.GlowBerry)
+                {
+                    //check for the other glow berries, at (0,4), (4,0), (4,4) + (i,j)
+                    Vector2[] glowBerryPositions = new Vector2[] { new Vector2(0,4) + tilePosition, new Vector2(4,0) + tilePosition, new Vector2(4,4) + tilePosition };
+                    //check that there is a glow berry at each of the positions
+                    spell1 = spell1 && TestForItemsAtPositions(glowBerryPositions, (int)SeedType.GlowBerry);
+                    //check for the daises at (1,1), (1,2), (1,3), (2,1), (2,3), (3,1), (3,2), (3,3) + (i,j)
+                    Vector2[] daisyPositions = new Vector2[] { new Vector2(1,1) + tilePosition, new Vector2(1,2) + tilePosition, new Vector2(1,3) + tilePosition, new Vector2(2,1) + tilePosition, new Vector2(2,3) + tilePosition, new Vector2(3,1) + tilePosition, new Vector2(3,2) + tilePosition, new Vector2(3,3) + tilePosition };
+                    //check that there is a daisy at each of the positions
+                    spell1 = spell1 && TestForItemsAtPositions(daisyPositions, (int)SeedType.Daisy);
+                    //if the spell is true, then we cast the spell
+                    if (spell1)
+                    {
+                        //drain the glow berries
+                        DrainAtPositions(glowBerryPositions);
+                        //drain the daisies
+                        DrainAtPositions(daisyPositions);
+                        //instantiate demon1 at (2,2) + (i,j)
+                        Instantiate(demon1, new Vector3(2 * tileSize + offset.x + i * tileSize, 2 * tileSize + offset.y + j * tileSize, -5), Quaternion.identity);
+
+                        return;
+                    }
+
+
+
+                }
+            }
+        }
+    }
+    void TestForSpell2()
+    {
+        bool spell2 = false;
+        //test for spell 2
+        //test for spell 1
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                spell2 = true;
+                Vector2 tilePosition = new Vector2(i, j);
+                //if the tile is a glow berry
+                if (plantArray[i][j] == (int)SeedType.GlowBerry)
+                {
+                    //check for the other glow berries, at (0,6), (6,0), (6,6) + (i,j)
+                    Vector2[] glowBerryPositions = new Vector2[] { new Vector2(0, 6) + tilePosition, new Vector2(6, 0) + tilePosition, new Vector2(6, 6) + tilePosition };
+                    //check that there is a glow berry at each of the positions
+                    spell2 = spell2 && TestForItemsAtPositions(glowBerryPositions, (int)SeedType.GlowBerry);
+                    //check for the daisies at (1,1), (2,2), (3,3), (4,4),(5,5), (1,5), 2,4), (4,2), (5,1) + (i,j)
+                    Vector2[] daisyPositions = new Vector2[] { new Vector2(1, 1) + tilePosition, new Vector2(2, 2) + tilePosition, new Vector2(3, 3) + tilePosition, new Vector2(4, 4) + tilePosition, new Vector2(5, 5) + tilePosition, new Vector2(1, 5) + tilePosition, new Vector2(2, 4) + tilePosition, new Vector2(4, 2) + tilePosition, new Vector2(5, 1) + tilePosition };
+                    //check that there is a daisy at each of the positions
+                    spell2 = spell2 && TestForItemsAtPositions(daisyPositions, (int)SeedType.Daisy);
+                    //if the spell is true, then we cast the spell
+                    if (spell2)
+                    {
+                        //drain the glow berries
+                        DrainAtPositions(glowBerryPositions);
+                        //drain the daisies
+                        DrainAtPositions(daisyPositions);
+                        //instantiate demon2 at (3,3) + (i,j)
+                        Instantiate(demon2, new Vector3(3 * tileSize + offset.x + i * tileSize, 3 * tileSize + offset.y + j * tileSize, -5), Quaternion.identity);
+
+                        return;
+                    }
+                }
+
+            }
+        }
     }
 
     void GrowPlants()
     {
-        GeneratePlantArray();
+        GeneratePlantArray(false);
         //grow plants according to rules
         for (int i = 0; i < width; i++)
         {
@@ -103,8 +208,8 @@ public class Board : MonoBehaviour
                         //grow daisies
                         tileScripts[i][j].Grow();
                         break;
-                    case (int)SeedType.GlowFlower:
-                        //grow glow flowers
+                    case (int)SeedType.GlowBerry:
+                        //grow glow berries
                         //check the surrounding tiles for the number of non- -1 tiles
                         int count = 0;
                         count = i > 0 && plantArray[i - 1][j] != -1 ? count + 1 : count;
@@ -175,7 +280,6 @@ public class Board : MonoBehaviour
 
     void LateUpdate()
     {
-        TestForSpells();
         ManageCommands();
         if(Input.GetKeyDown(KeyCode.G))
         {
@@ -183,14 +287,7 @@ public class Board : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.D))
         {
-            //drain the plants
-            for (int i = 0; i < width; i++)
-            {
-                for (int j = 0; j < height; j++)
-                {
-                    tileScripts[i][j].Drain();
-                }
-            }
+            TestForSpells();
         }
     }
 }

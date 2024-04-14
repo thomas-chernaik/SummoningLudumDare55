@@ -40,15 +40,29 @@ public class Tile : MonoBehaviour
         boxCollider.size = spriteRenderer.size * 2;
         UpdateTile();
     }
-    public int GetSeedType()
+    public int GetSeedType(bool grown)
     {
-        if(type == TileType.Seeded || type == TileType.Grown || type == TileType.Drained)
+        if (grown)
         {
-            return seedType;
+            if (type == TileType.Grown)
+            {
+                return seedType;
+            }
+            else
+            {
+                return -1;
+            }
         }
         else
         {
-            return -1;
+            if (type == TileType.Seeded || type == TileType.Grown || type == TileType.Drained)
+            {
+                return seedType;
+            }
+            else
+            {
+                return -1;
+            }
         }
     }
 
