@@ -129,11 +129,22 @@ MonoBehaviour:
   defaultType: 0
   deadType: 0
   seedType: 0
-  defaultSprites:
-  - {fileID: 307215759, guid: a478696c7164efc4d873c07c8a09baf3, type: 3}
+  defaultSprites: []
   deadSprites:
-  - {fileID: 1620148015, guid: a478696c7164efc4d873c07c8a09baf3, type: 3}
-  tilledSprite: {fileID: -1620505940, guid: a478696c7164efc4d873c07c8a09baf3, type: 3}
-  seededSprites: []
-  grownSprites: []
-  drainedSprites: []
+  - {fileID: 21300000, guid: 199fdbe0fde4f8847bd3e3d44e6ee4bd, type: 3}
+  tilledSprite: {fileID: 21300000, guid: 664ecbf88f3408d488135c8cd25bca4b, type: 3}
+  seededSprites:
+  - {fileID: 21300000, guid: 76ca9c16ac936ad47a5b6be2a2b8829e, type: 3}
+  - {fileID: 21300000, guid: 3794a15012acf384fb55b34495bc458f, type: 3}
+  - {fileID: 21300000, guid: fde98d1077a383b428903b5808d48569, type: 3}
+  - {fileID: 21300000, guid: 3afc6126cf21b204fbf3f7db6e56a0c8, type: 3}
+  grownSprites:
+  - {fileID: 21300000, guid: a2a78f5960496704caed3416c377bde0, type: 3}
+  - {fileID: 21300000, guid: 6a8c0d17f731708448c2ec232b80832f, type: 3}
+  - {fileID: 21300000, guid: ede98dfd6894c8d4b8957042ce39bcb8, type: 3}
+  - {fileID: 21300000, guid: 357d0a0231237374b98f71a415261931, type: 3}
+  drainedSprites:
+  - {fileID: 21300000, guid: 29389af0cf5d4c441971f50e721b4605, type: 3}
+  - {fileID: 21300000, guid: f5abcf7896193a046b512b979c588758, type: 3}
+  - {fileID: 21300000, guid: a16e44b973efd814c88354a180c15809, type: 3}
+  - {fileID: 21300000, guid: 4fe7fc7239a5c6641b50584ee8429ac5, type: 3}

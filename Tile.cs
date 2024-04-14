@@ -37,12 +37,12 @@ public class Tile : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         //set the box collider to be the same size as the sprite
         BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
-        boxCollider.size = spriteRenderer.size;
+        boxCollider.size = spriteRenderer.size * 2;
         UpdateTile();
     }
     public int GetSeedType()
     {
-        if(type == TileType.Grown)
+        if(type == TileType.Seeded || type == TileType.Grown || type == TileType.Drained)
         {
             return seedType;
         }
@@ -52,8 +52,17 @@ public class Tile : MonoBehaviour
         }
     }
 
+    public void Drain()
+    {
+        if (type == TileType.Grown)
+        {
+            type = TileType.Drained;
+        }
+    }
+
     public void Grow()
     {
+        print("hey");
         if (type == TileType.Seeded)
         {
             type = TileType.Grown;

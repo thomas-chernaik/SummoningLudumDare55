@@ -24,11 +24,6 @@ public class ToolBar : MonoBehaviour
         toolBarMaterial.SetTexture("_MainTex3", toolBarTextures[2]);
         toolBarMaterial.SetTexture("_MainTex4", toolBarTextures[3]);
         toolBarMaterial.SetTexture("_MainTex5", toolBarTextures[4]);
-        toolBarMaterial.SetTexture("_MainTex6", toolBarTextures[5]);
-        toolBarMaterial.SetTexture("_MainTex7", toolBarTextures[6]);
-        toolBarMaterial.SetTexture("_MainTex8", toolBarTextures[7]);
-        toolBarMaterial.SetTexture("_MainTex9", toolBarTextures[8]);
-        toolBarMaterial.SetTexture("_MainTex10", toolBarTextures[9]);
         previousNumberOfItems = numberOfItems;
         previousSelectedItem = selectedItem;
         //get the rect transform component

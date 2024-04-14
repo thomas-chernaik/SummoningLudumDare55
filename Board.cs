@@ -38,7 +38,7 @@ public class Board : MonoBehaviour
             tiles[i] = new GameObject[height];
             tileScripts[i] = new Tile[height];
         }
-        int[][] plantArray = new int[width][];
+        plantArray = new int[width][];
         for (int i = 0; i < width; i++)
         {
             plantArray[i] = new int[height];
@@ -65,6 +65,8 @@ public class Board : MonoBehaviour
     }
     void GeneratePlantArray()
     {
+        //print plant array
+
         
         //fill the plant array with the seed types
         for (int i = 0; i < width; i++)
@@ -174,7 +176,21 @@ public class Board : MonoBehaviour
     void LateUpdate()
     {
         TestForSpells();
-        GrowPlants();
         ManageCommands();
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+            GrowPlants();
+        }
+        if(Input.GetKeyDown(KeyCode.D))
+        {
+            //drain the plants
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+                    tileScripts[i][j].Drain();
+                }
+            }
+        }
     }
 }
