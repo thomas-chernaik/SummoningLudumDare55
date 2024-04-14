@@ -16,7 +16,7 @@ public enum TileType
 [RequireComponent(typeof(BoxCollider2D))]
 public class Tile : MonoBehaviour
 {
-    //require a sprite renderer
+    public Board board;
     public TileType type = TileType.Dead;
     public int defaultType = 0;
     public int deadType = 0;
@@ -39,6 +39,37 @@ public class Tile : MonoBehaviour
         BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
         boxCollider.size = spriteRenderer.size;
         UpdateTile();
+    }
+    public int GetSeedType()
+    {
+        if(type == TileType.Grown)
+        {
+            return seedType;
+        }
+    }
+
+    public void Grow()
+    {
+        if (type == TileType.Seeded)
+        {
+            type = TileType.Grown;
+        }
+    }
+
+    public void Plant(int seedType)
+    {
+        if (type == TileType.Tilled)
+        {
+            type = TileType.Seeded;
+            this.seedType = seedType;
+        }
+    }
+    public void Till()
+    {
+        if (type == TileType.Dead || type == TileType.Seeded)
+        {
+            type = TileType.Tilled;
+        }
     }
 
     void UpdateTile()
@@ -76,14 +107,12 @@ public class Tile : MonoBehaviour
             prevType = type;
         }
         //check if the mouse is over the tile
-        if (Input.GetMouseButtonDown(0))
+
+        Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
+        if (hit.collider != null && hit.collider.gameObject == gameObject)
         {
-            Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
-            if (hit.collider != null && hit.collider.gameObject == gameObject)
-            {
-                gameObject.SetActive(false);
-            }
-        }
+            board.SelectTile(transform, this);
+        }        
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Board : MonoBehaviour
 {
+    //section world generation
+    [SerializeField]
     public int width;
     public int height;
     public float tileSize;
@@ -12,6 +14,11 @@ public class Board : MonoBehaviour
     public GameObject[][] tiles;
     public Tile[][] tileScripts;
     public string levelFile;
+    //section game logic
+    public GameObject tileSelector;
+    public Tile selectedTile;
+    public ToolBar toolBar;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +43,7 @@ public class Board : MonoBehaviour
                 {
                     tiles[i][j] = Instantiate(tilePrefab, new Vector3(i * tileSize + offset.x, j * tileSize + offset.y, 0), Quaternion.identity);
                     tileScripts[i][j] = tiles[i][j].GetComponent<Tile>();
+                    tileScripts[i][j].board = this;
                 }
             }
 
@@ -60,9 +68,40 @@ public class Board : MonoBehaviour
         //grow plants according to rules
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SelectTile(Transform tilePosition, Tile tileToSelect)
     {
-        
+        //move the tile selector to the selected tile
+        tileSelector.transform.position = tilePosition.position - transform.forward;
+        tileSelector.transform.rotation = tilePosition.rotation;
+        tileSelector.transform.localScale = tilePosition.localScale;
+        //set the selected tile
+        selectedTile = tileToSelect;
+    }
+
+    void ManageCommands()
+    {
+        //if the player clicks the left mouse button
+        if (Input.GetMouseButtonDown(0))
+        {
+            //get the thing selected in the toolbar
+            int selectedItem = toolBar.selectedItem;
+            //if the selected item is 0, then till the land
+            if (selectedItem == 0)
+            {
+                selectedTile.Till();
+            }
+            //otherwise, we plant a seed
+            else
+            {
+                selectedTile.Plant(selectedItem - 1);
+            }
+        }
+    }
+
+    void LateUpdate()
+    {
+        TestForSpells();
+        GrowPlants();
+        ManageCommands();
     }
 }

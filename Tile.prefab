@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba40255746a15aa4e8a5e3c344138281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  board: {fileID: 0}
   type: 1
   defaultType: 0
   deadType: 0
@@ -132,7 +133,7 @@ MonoBehaviour:
   - {fileID: 307215759, guid: a478696c7164efc4d873c07c8a09baf3, type: 3}
   deadSprites:
   - {fileID: 1620148015, guid: a478696c7164efc4d873c07c8a09baf3, type: 3}
-  tilledSprite: {fileID: 0}
+  tilledSprite: {fileID: -1620505940, guid: a478696c7164efc4d873c07c8a09baf3, type: 3}
   seededSprites: []
   grownSprites: []
   drainedSprites: []
