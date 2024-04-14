@@ -125,6 +125,16 @@ public class Board : MonoBehaviour
                         break;
                     case (int)SeedType.Daffodil:
                         //grow daffodils
+                        //check the horizontal and vertically adjacent tiles for any daffodils
+                        bool grow = true;
+                        grow = i > 0 && plantArray[i - 1][j] == (int)SeedType.Daffodil ? false : grow;
+                        grow = i < width - 1 && plantArray[i + 1][j] == (int)SeedType.Daffodil ? false : grow;
+                        grow = j > 0 && plantArray[i][j - 1] == (int)SeedType.Daffodil ? false : grow;
+                        grow = j < height - 1 && plantArray[i][j + 1] == (int)SeedType.Daffodil ? false : grow;
+                        if (grow)
+                        {
+                            tileScripts[i][j].Grow();
+                        }
                         break;
                 }
             }
