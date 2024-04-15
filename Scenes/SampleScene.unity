@@ -492,6 +492,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIDocument
       objectReference: {fileID: 0}
+    - target: {fileID: 2916747566992700188, guid: 0fce9981442beda438819b44fba19348, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2916747566992700190, guid: 0fce9981442beda438819b44fba19348, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -502,7 +506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2916747566992700190, guid: 0fce9981442beda438819b44fba19348, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -15.399994
       objectReference: {fileID: 0}
     - target: {fileID: 2916747566992700190, guid: 0fce9981442beda438819b44fba19348, type: 3}
       propertyPath: m_LocalPosition.z
@@ -514,15 +518,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2916747566992700190, guid: 0fce9981442beda438819b44fba19348, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2916747566992700190, guid: 0fce9981442beda438819b44fba19348, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2916747566992700190, guid: 0fce9981442beda438819b44fba19348, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2916747566992700190, guid: 0fce9981442beda438819b44fba19348, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -663,7 +667,8 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 2a2aad7b492800947ace306de30e3dbd, type: 3}
   numberOfItems: 5
   selectedItem: 0
-  widthPerItem: 0.3
+  widthPerItem: 0.2
+  rectTransform: {fileID: 1028316989}
 --- !u!1 &1295683377
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +860,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec792186670666845929fab5408f2f54, type: 3}
+--- !u!1 &1488184550 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2916747566992700188, guid: 0fce9981442beda438819b44fba19348, type: 3}
+  m_PrefabInstance: {fileID: 911896684}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1792933271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,6 +1073,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2044562153}
     m_Modifications:
+    - target: {fileID: 8028262529801060089, guid: ee2259068218b0148b83dfef040013a9, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ebc35004c903401489e13cc687304854, type: 2}
+    - target: {fileID: 8028262529801060089, guid: ee2259068218b0148b83dfef040013a9, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8028262530138629024, guid: ee2259068218b0148b83dfef040013a9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1147,6 +1165,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8028262530138629025, guid: ee2259068218b0148b83dfef040013a9, type: 3}
+      propertyPath: UIDocument
+      value: 
+      objectReference: {fileID: 1488184550}
+    - target: {fileID: 8028262530138629025, guid: ee2259068218b0148b83dfef040013a9, type: 3}
+      propertyPath: portraits.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028262530138629025, guid: ee2259068218b0148b83dfef040013a9, type: 3}
+      propertyPath: portraits.Array.data[1]
+      value: 
+      objectReference: {fileID: 2800000, guid: bf8e23570ee375045b6b5b1d5e588259, type: 3}
+    - target: {fileID: 8028262530138629025, guid: ee2259068218b0148b83dfef040013a9, type: 3}
+      propertyPath: portraits.Array.data[2]
+      value: 
+      objectReference: {fileID: 2800000, guid: 5571a9b15d8f193449ad97cd2d3df19b, type: 3}
+    - target: {fileID: 8028262530138629025, guid: ee2259068218b0148b83dfef040013a9, type: 3}
+      propertyPath: portraits.Array.data[3]
+      value: 
+      objectReference: {fileID: 2800000, guid: 3583ec42f3a715743ad6230142273b38, type: 3}
+    - target: {fileID: 8028262530138629025, guid: ee2259068218b0148b83dfef040013a9, type: 3}
+      propertyPath: portraits.Array.data[4]
+      value: 
+      objectReference: {fileID: 2800000, guid: 26c729bc96834314395874e6a0689848, type: 3}
+    - target: {fileID: 8028262530138629025, guid: ee2259068218b0148b83dfef040013a9, type: 3}
+      propertyPath: portraits.Array.data[5]
+      value: 
+      objectReference: {fileID: 2800000, guid: fcebd2c1ef4f2d9479e7b874cf5dc7a5, type: 3}
     - target: {fileID: 8028262530138629027, guid: ee2259068218b0148b83dfef040013a9, type: 3}
       propertyPath: m_Name
       value: CutsceneUI

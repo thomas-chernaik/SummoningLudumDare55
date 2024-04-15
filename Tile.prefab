@@ -106,7 +106,15 @@ MonoBehaviour:
   defaultType: 0
   deadType: 0
   seedType: 0
-  defaultSprites: []
+  defaultSprites:
+  - {fileID: -938563593, guid: 8a9ebfbf33a0b8f439a6353cbc884771, type: 3}
+  - {fileID: -521027694, guid: 8a9ebfbf33a0b8f439a6353cbc884771, type: 3}
+  - {fileID: 1450713390, guid: 8a9ebfbf33a0b8f439a6353cbc884771, type: 3}
+  - {fileID: -153410112, guid: 8a9ebfbf33a0b8f439a6353cbc884771, type: 3}
+  - {fileID: -504834330, guid: 8a9ebfbf33a0b8f439a6353cbc884771, type: 3}
+  - {fileID: 419861554, guid: 8a9ebfbf33a0b8f439a6353cbc884771, type: 3}
+  - {fileID: 2002561259, guid: 8a9ebfbf33a0b8f439a6353cbc884771, type: 3}
+  - {fileID: 231013085, guid: 8a9ebfbf33a0b8f439a6353cbc884771, type: 3}
   deadSprites:
   - {fileID: 21300000, guid: d7472dcedc8e4a14d95cd39f2536a700, type: 3}
   tilledSprite: {fileID: 21300000, guid: 5bf5dd95961e8ff42bb5604095bd51d8, type: 3}
