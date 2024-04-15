@@ -67,6 +67,10 @@ public class Board : MonoBehaviour
         //load level
         LoadLevel();
     }
+    public int GetNumberOfDemons()
+    {
+        return demonsSummoned.Count;
+    }
     void LoadLevel(string level=null)
     {
         if(level == null)
