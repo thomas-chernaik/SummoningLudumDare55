@@ -11,7 +11,7 @@ public class ToolBar : MonoBehaviour
     public float widthPerItem = 0.3f;
     private int previousSelectedItem = 0;
     private int previousNumberOfItems = 0;
-    private RectTransform rectTransform;
+    public  RectTransform rectTransform;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +26,7 @@ public class ToolBar : MonoBehaviour
         toolBarMaterial.SetTexture("_MainTex5", toolBarTextures[4]);
         previousNumberOfItems = numberOfItems;
         previousSelectedItem = selectedItem;
-        //get the rect transform component
-        rectTransform = GetComponent<RectTransform>();
+        UpdateItems();
 
     }
     void UpdateSelection()
@@ -38,7 +37,7 @@ public class ToolBar : MonoBehaviour
             previousSelectedItem = selectedItem;
         }
     }
-    void UpdateItems()
+    public void UpdateItems()
     {
         if(previousNumberOfItems != numberOfItems)
         {

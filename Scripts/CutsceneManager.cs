@@ -10,6 +10,7 @@ using Unity.VisualScripting;
 [RequireComponent(typeof(Cutscene))]
 public class CutsceneManager : MonoBehaviour
 {
+    public GameObject UIDocument;
     public TMPro.TextMeshProUGUI NameText;
     public TMPro.TextMeshProUGUI DialogueText;
     public Image Portrait;
@@ -26,7 +27,12 @@ public class CutsceneManager : MonoBehaviour
     //the mapping of strings to portraits
     private Dictionary<string, int> portraitMap = new Dictionary<string, int>()
     {
-        { "raj", 0 }
+        { "raj", 0 },
+        {"demon1", 1 },
+        {"demon2", 2 },
+        {"demon3", 3},
+        {"demon4", 4},
+        {"demon5", 5}
     };
 
 
@@ -37,6 +43,12 @@ public class CutsceneManager : MonoBehaviour
         StartCoroutine(PlayCutscene(cutscene));
         NextButton.onClick.AddListener(() => { nextButtonPressed = true; });
     }
+    public void StartCutscene(List<CutsceneLine> cutsceneToPlay)
+    {
+        cutscene.lines = cutsceneToPlay;
+        StartCoroutine(PlayCutscene(cutscene));
+        NextButton.onClick.AddListener(() => { nextButtonPressed = true; });
+    }
 
     private IEnumerator PlayCutscene(Cutscene cutscene)
     {
@@ -44,6 +56,7 @@ public class CutsceneManager : MonoBehaviour
         foreach(Transform child in transform)
         {
             child.gameObject.SetActive(true);
+            UIDocument.SetActive(false);
         }
        int currentLine = 0;
         while(currentLine < cutscene.lines.Count)
@@ -62,6 +75,7 @@ public class CutsceneManager : MonoBehaviour
             {
                 Portrait.color = new Color(1, 1, 1, Portrait.color.a + Time.deltaTime / portraitFadeSpeed);
                 portraitTime += Time.deltaTime;
+                typeTimer = 0;
                 yield return null;
             }
             while (DialogueText.text != currentDialogue)
@@ -99,6 +113,7 @@ public class CutsceneManager : MonoBehaviour
         foreach(Transform child in transform)
         {
             child.gameObject.SetActive(false);
+            UIDocument.SetActive(true);
         }
     }
 

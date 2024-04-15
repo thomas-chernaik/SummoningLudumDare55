@@ -85,6 +85,13 @@ public class Tile : MonoBehaviour
         print("hey");
         if (type == TileType.Seeded)
         {
+            //if we are a rose, enable the box collider
+            if (seedType == 0)
+            {
+                BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
+                if (boxCollider != null)
+                    boxCollider.enabled = true;
+            }
             type = TileType.Grown;
         }
     }
@@ -119,6 +126,10 @@ public class Tile : MonoBehaviour
         switch (type)
         {
             case TileType.NotGarden:
+                //enable box collider
+                BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
+                if (boxCollider != null)
+                    boxCollider.enabled = true;
                 spriteRenderer.sprite = defaultSprites[defaultType];
                 break;
             case TileType.Dead:

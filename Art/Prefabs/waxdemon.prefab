@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3921592123197310461}
   - component: {fileID: 7101180102024017005}
   - component: {fileID: 4012789909555695632}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: waxdemon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,12 +146,6 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0

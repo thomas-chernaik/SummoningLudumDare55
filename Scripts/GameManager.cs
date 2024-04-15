@@ -14,8 +14,16 @@ public class GameManager : MonoBehaviour
 
     public void TriggerNextDay()
     {
-        cutsceneManager.StartCutscene("NextDay");
         board.GrowPlants();
         board.TestForSpells();
+        cutsceneManager.StartCutscene(board.GenerateNewDayCutscene());
+
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TriggerNextDay();
+        }
     }
 }
