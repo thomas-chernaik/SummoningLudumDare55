@@ -365,7 +365,7 @@ public class Board : MonoBehaviour
         }
         //move the tile selector to the selected tile
         tileSelector.transform.position = tilePosition.position - transform.forward;
-        tileSelector.transform.rotation = tilePosition.rotation;
+        print(tileSelector.transform.position);
         //set the selected tile
         selectedTile = tileToSelect;
     }
@@ -410,6 +410,8 @@ public class Board : MonoBehaviour
         {
             //deselect the tile
             selectedTile = null;
+            //disable the tile selector
+            tileSelector.transform.position = new Vector3(-1000, -1000, 0);
         }
 
     }
