@@ -67,6 +67,10 @@ public class Board : MonoBehaviour
         //load level
         LoadLevel();
     }
+    public int GetNumberOfDemons()
+    {
+        return demonsSummoned.Count;
+    }
     void LoadLevel(string level=null)
     {
         if(level == null)
@@ -79,6 +83,55 @@ public class Board : MonoBehaviour
                     tiles[i][j] = Instantiate(tilePrefab, new Vector3(i * tileSize + offset.x, j * tileSize + offset.y, 0), Quaternion.identity);
                     tileScripts[i][j] = tiles[i][j].GetComponent<Tile>();
                     tileScripts[i][j].SetBoard(this);
+                    //if we are in the top left, we set type to not garden 0
+                    if(i == 0 && j == height - 1)
+                    {
+                        tileScripts[i][j].type = TileType.NotGarden;
+                        tileScripts[i][j].defaultType = 0;
+                    }
+                    //if we are in the top right, we set the type to not garden 2
+                    else if(i == width - 1 && j == height - 1)
+                    {
+                        tileScripts[i][j].type = TileType.NotGarden;
+                        tileScripts[i][j].defaultType = 2;
+                    }
+                    //if we are otherwise in the top row, we set the type to not garden 1
+                    else if(j == height - 1)
+                    {
+                        tileScripts[i][j].type = TileType.NotGarden;
+                        tileScripts[i][j].defaultType = 1;
+                    }
+                    //if we are in the bottom right, we set the type to not garden 4;
+                    else if(i == width - 1 && j == 0)
+                    {
+                        tileScripts[i][j].type = TileType.NotGarden;
+                        tileScripts[i][j].defaultType = 4;
+                    }
+                    //if we are otherwise in the right column, we set the type to not garden 3
+                    else if(i == width - 1)
+                    {
+                        tileScripts[i][j].type = TileType.NotGarden;
+                        tileScripts[i][j].defaultType = 3;
+                    }
+                    //if we are in the bottom left, we set the type to not garden 6
+                    else if(i == 0 && j == 0)
+                    {
+                        tileScripts[i][j].type = TileType.NotGarden;
+                        tileScripts[i][j].defaultType = 6;
+                    }
+                    //if we are otherwise in the bottom row, we set the type to not garden 5
+                    else if(j == 0)
+                    {
+                        tileScripts[i][j].type = TileType.NotGarden;
+                        tileScripts[i][j].defaultType = 5;
+                    }
+                    //if we are in the left column, we set the type to not garden 7
+                    else if(i == 0)
+                    {
+                        tileScripts[i][j].type = TileType.NotGarden;
+                        tileScripts[i][j].defaultType = 7;
+                    }
+                    //otherwise we leave as the default
                 }
             }
 
