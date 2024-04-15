@@ -86,7 +86,7 @@ public class Tile : MonoBehaviour
         if (type == TileType.Seeded)
         {
             //if we are a rose, enable the box collider
-            if (seedType == 0)
+            if (seedType == (int)SeedType.Rose)
             {
                 BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
                 if (boxCollider != null)
