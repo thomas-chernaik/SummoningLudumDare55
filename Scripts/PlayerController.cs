@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
 {
     // Variables related to player character movement
     public InputAction MoveAction;
+    public InputAction BookAction;
+    public InputAction FAction;
+    public InputAction BAction;
     Rigidbody2D rigidbody2d;
     Vector2 move;
     public float speed = 3.0f;
@@ -24,6 +27,12 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         MoveAction.Enable();
+        BookAction.Enable();
+        BAction.Enable();
+        FAction.Enable();
+        BookAction.performed += TogBook;
+        FAction.performed += Forward;
+        BAction.performed += Backward;
         rigidbody2d = GetComponent<Rigidbody2D>();
         currentMana = maxMana;
         animator = GetComponent<Animator>();
@@ -63,11 +72,19 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    void ChangeMana(int amount)
+    void TogBook(InputAction.CallbackContext context)
     {
-        currentMana = Mathf.Clamp(currentMana + amount, 0, maxMana);
-        UIHandler.instance.SetManaValue(currentMana / (float)maxMana);
+        UIHandler.instance.ChangeBook();
     }
 
+    void Forward(InputAction.CallbackContext context)
+    {
+        UIHandler.instance.BookForward();
+    }
+
+    void Backward(InputAction.CallbackContext context)
+    {
+        UIHandler.instance.BookBackward();
+    }
 
 }
