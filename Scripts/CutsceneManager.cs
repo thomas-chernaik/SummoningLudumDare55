@@ -16,18 +16,23 @@ public class CutsceneManager : MonoBehaviour
     public Button NextButton;
     public float lettersPerSecond = 30;
     public float portraitFadeSpeed = 0.3f;
+    //dictionary of portraits
+    public List<Texture2D> portraits;
     private float typeTimer;
     private string currentDialogue;
     private bool nextButtonPressed;
-    private bool portraitFading;
     public Cutscene cutscene;
-    void Start()
+    Texture2D tex;
+    //the mapping of strings to portraits
+    private Dictionary<string, int> portraitMap = new Dictionary<string, int>()
     {
-        cutscene = GetComponent<Cutscene>();
-    }
+        { "raj", 0 }
+    };
+
 
     public void StartCutscene(string cutsceneFile)
     {
+        cutsceneFile += ".json";
         cutscene.LoadCutscene(cutsceneFile);
         StartCoroutine(PlayCutscene(cutscene));
         NextButton.onClick.AddListener(() => { nextButtonPressed = true; });
@@ -45,16 +50,17 @@ public class CutsceneManager : MonoBehaviour
         {
             CutsceneLine line = cutscene.lines[currentLine];
             NameText.text = line.name;
-            Portrait.sprite = Resources.Load<Sprite>("Portraits/" + line.portrait + ".png");
+            tex = portraits[portraitMap[line.portrait]];
+            Portrait.sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f));
             Portrait.color = new Color(1, 1, 1, 0);
             currentDialogue = line.dialogue;
             DialogueText.text = "";
-            typeTimer = 0;
+            typeTimer = 0;  
             double portraitTime = 0;
 
             while(portraitTime < portraitFadeSpeed)
             {
-                Portrait.color = new Color(1, 1, 1, Portrait.color.a + portraitFadeSpeed * Time.deltaTime);
+                Portrait.color = new Color(1, 1, 1, Portrait.color.a + Time.deltaTime / portraitFadeSpeed);
                 portraitTime += Time.deltaTime;
                 yield return null;
             }

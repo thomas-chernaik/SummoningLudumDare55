@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &59409582
 RectTransform:
   m_ObjectHideFlags: 0
@@ -275,7 +275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &123070241
 RectTransform:
   m_ObjectHideFlags: 0
@@ -417,7 +417,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &315280703
 RectTransform:
   m_ObjectHideFlags: 0
@@ -711,6 +711,7 @@ GameObject:
   - component: {fileID: 534210709}
   - component: {fileID: 534210708}
   - component: {fileID: 534210711}
+  - component: {fileID: 534210712}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -794,6 +795,20 @@ MonoBehaviour:
   demon3: {fileID: 0}
   demon4: {fileID: 0}
   demon5: {fileID: 0}
+--- !u!114 &534210712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534210707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d2c9c0027c8dc4fab09558338f3887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutsceneManager: {fileID: 1873385975}
+  board: {fileID: 534210711}
 --- !u!4 &551082829 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8471451645056490189, guid: ec792186670666845929fab5408f2f54, type: 3}
@@ -1077,7 +1092,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1198328544
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1229,7 +1244,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295683377}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 9333367218742fe4f8f8a6cbceea6053, type: 2}
   m_CullingMode: 0
@@ -1259,7 +1274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1390810184
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1453,7 +1468,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1710460834
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1605,6 +1620,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1873385974}
+  - component: {fileID: 1873385976}
+  - component: {fileID: 1873385975}
   m_Layer: 5
   m_Name: CutsceneUI
   m_TagString: Untagged
@@ -1638,6 +1655,41 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1873385975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873385973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94102a8fb320fb94c80a838ebdeb65e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameText: {fileID: 59409583}
+  DialogueText: {fileID: 1390810185}
+  Portrait: {fileID: 1710460835}
+  NextButton: {fileID: 315280704}
+  lettersPerSecond: 10
+  portraitFadeSpeed: 0.3
+  portraits:
+  - {fileID: 2800000, guid: fcebd2c1ef4f2d9479e7b874cf5dc7a5, type: 3}
+  cutscene: {fileID: 1873385976}
+--- !u!114 &1873385976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873385973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a64260ae287e56144948a25b0fe6cdec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutsceneFile: 
+  lines: []
 --- !u!1 &2044562149
 GameObject:
   m_ObjectHideFlags: 0

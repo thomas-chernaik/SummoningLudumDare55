@@ -83,7 +83,7 @@ public class Board : MonoBehaviour
             }
         }
     }
-    void TestForSpells()
+    public void TestForSpells()
     {
         GeneratePlantArray(true);
         //call each spells test function
@@ -303,7 +303,7 @@ public class Board : MonoBehaviour
         }
     }
 
-    void GrowPlants()
+    public void GrowPlants()
     {
         GeneratePlantArray(false);
         //grow plants according to rules
@@ -365,7 +365,6 @@ public class Board : MonoBehaviour
         }
         //move the tile selector to the selected tile
         tileSelector.transform.position = tilePosition.position - transform.forward;
-        print(tileSelector.transform.position);
         //set the selected tile
         selectedTile = tileToSelect;
     }

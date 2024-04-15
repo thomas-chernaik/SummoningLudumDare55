@@ -9,8 +9,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cutsceneManager.StartCutscene("Intro");
-        board.GenerateBoard();
+        cutsceneManager.StartCutscene("intro");
     }
 
     public void TriggerNextDay()
