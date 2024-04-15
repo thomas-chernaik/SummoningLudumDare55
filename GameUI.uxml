@@ -1,8 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="DialogueUI" src="project://database/Assets/DialogueUI.uxml?fileID=9197481963319205126&amp;guid=8a7fafd3e8876f844990ea54c194f5f9&amp;type=3#DialogueUI" />
     <ui:VisualElement name="BarBackground" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/Art/Summon/uibar.png?fileID=21300000&amp;guid=f20750a7625e113458cf4b0a0da991b9&amp;type=3#uibar&quot;); width: 319px; height: 155px; -unity-background-scale-mode: scale-to-fit;">
         <ui:VisualElement name="BarContainer" style="flex-grow: 1; width: 310px; height: 160px; position: absolute; top: -2px; left: 1px;">
             <ui:VisualElement name="Bar" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/Summon/charge.png?fileID=21300000&amp;guid=e4f73c5d4a4dba24a95f55c8753da23f&amp;type=3#charge&quot;); height: 161px; width: 315px;" />
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="Portrait" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/Summon/head.png?fileID=21300000&amp;guid=a217c5a11c5e90f419cc82bfb1347168&amp;type=3#head&quot;); -unity-background-scale-mode: scale-to-fit; width: 66px; height: 62px; position: absolute; top: 37px; left: 25px;" />
+    <ui:Instance template="DialogueUI" name="DialogueUI" style="position: absolute; left: 746px; top: 373px; right: 3px; bottom: 3px;" />
 </ui:UXML>
