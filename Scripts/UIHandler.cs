@@ -19,7 +19,6 @@ public class UIHandler : MonoBehaviour
     private float m_TimerDisplay;
 
     private bool bookShowing = false;
-    private bool showing = true;
 
     private string[] titles = { "Iron", "Copper", "Vitriol", "Wax", "Sulphur" };
     private string[,] patterns = {
