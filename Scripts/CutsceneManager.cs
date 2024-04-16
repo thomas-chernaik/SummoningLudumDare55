@@ -10,7 +10,6 @@ using Unity.VisualScripting;
 [RequireComponent(typeof(Cutscene))]
 public class CutsceneManager : MonoBehaviour
 {
-    public GameObject UIDocument;
     public TMPro.TextMeshProUGUI NameText;
     public TMPro.TextMeshProUGUI DialogueText;
     public Image Portrait;
@@ -56,7 +55,6 @@ public class CutsceneManager : MonoBehaviour
         foreach(Transform child in transform)
         {
             child.gameObject.SetActive(true);
-            UIDocument.SetActive(false);
         }
        int currentLine = 0;
         while(currentLine < cutscene.lines.Count)
@@ -113,7 +111,6 @@ public class CutsceneManager : MonoBehaviour
         foreach(Transform child in transform)
         {
             child.gameObject.SetActive(false);
-            UIDocument.SetActive(true);
         }
     }
 

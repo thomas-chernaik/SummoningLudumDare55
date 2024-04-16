@@ -183,21 +183,21 @@ public class Board : MonoBehaviour
         {
             CutsceneLine line1 = new CutsceneLine();
             line1.name = "Narrator";
-            line1.dialogue = "You successfully summoned the following demons today:";
+            line1.dialogue = "You go to sleep, and in your rest, a demon is summoned:";
             line1.portrait = "raj";
             lines.Add(line1);
             //demon1 line
             if(demonsSummonedToday.Contains(DemonsType.Demon1))
             {
                 CutsceneLine demon1Line = new CutsceneLine();
-                demon1Line.name = "Narrator";
+                demon1Line.name = "Russel Sprout";
                 if(demonsSummoned.Contains(DemonsType.Demon1))
                 {
-                    demon1Line.dialogue = "You summoned another Russel Sprout.";
+                    demon1Line.dialogue = "DID YOU BUTT DIAL ME? YOU KNOW IM JUST HERE YOU CAN JUST HEAD OVER";
                 }
                 else
                 {
-                    demon1Line.dialogue = "You summoned Russel Sprout! He gifts you a bag of rose seeds, with the warning they are prickly.";
+                    demon1Line.dialogue = "THANK YOU FOR SUMMONING ME BRO! HERE HAVE SOME OF THESE ROSE SEEDS! LOOKS LIKE YOU DON'T HAVE ALL THE DIGITS TO THE OTHERS SO ILL HELP YOU OUT!  (Patterns filled in inside gardening book)";
                     toolBar.numberOfItems = 4;
                     demonsSummoned.Add(DemonsType.Demon1);
                 }
@@ -208,14 +208,14 @@ public class Board : MonoBehaviour
             if (demonsSummonedToday.Contains(DemonsType.Demon2))
             {
                 CutsceneLine demon2Line = new CutsceneLine();
-                demon2Line.name = "Narrator";
+                demon2Line.name = "Herb";
                 if (demonsSummoned.Contains(DemonsType.Demon2))
                 {
-                    demon2Line.dialogue = "You summoned another Herb.";
+                    demon2Line.dialogue = "WAAAAAAAAAAAAAAAAAAA(you called again?).";
                 }
                 else
                 {
-                    demon2Line.dialogue = "You have summoned Herb. He will assist you in cooking the most delicious foods.";
+                    demon2Line.dialogue = "WAAAAAAAAAAAAAAAAAAA(Ive joined you in the mortal realm, i'll assist you in your summoning (Patterns filled in inside gardening book)).";
                     demonsSummoned.Add(DemonsType.Demon2);
                 }
                 demon2Line.portrait = "demon2";
@@ -228,11 +228,11 @@ public class Board : MonoBehaviour
                 demon3Line.name = "Narrator";
                 if (demonsSummoned.Contains(DemonsType.Demon3))
                 {
-                    demon3Line.dialogue = "You summoned another Keanu Leaves.";
+                    demon3Line.dialogue = "Keanu Leaves bites your ankle again for summoning him again";
                 }
                 else
                 {
-                    demon3Line.dialogue = "You summoned Keanu Leaves. He gives you a bag of daffodil seeds, warning you that daffodils can't be placed directly next to other daffodils.";
+                    demon3Line.dialogue = "Keanu Leaves bites your ankle, chucks a bag of daffodil seeds at you, then runs off.(Patterns filled in inside gardening book)";
                     toolBar.numberOfItems = 5;
                     demonsSummoned.Add(DemonsType.Demon3);
                 }

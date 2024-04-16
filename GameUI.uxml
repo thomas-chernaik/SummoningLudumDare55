@@ -4,5 +4,6 @@
     <ui:VisualElement name="GardeningBook" style="flex-grow: 0; width: 80%; height: 80%; background-image: url(&quot;project://database/Assets/Art/Summon/book.png?fileID=21300000&amp;guid=6a99a11ac21cd604d91192ac9ca39490&amp;type=3#book&quot;); flex-shrink: 0; left: 10%; -unity-background-scale-mode: scale-to-fit; top: -29%;">
         <ui:Label tabindex="-1" text="Name" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DemonName" style="width: 35%; font-size: 35px; -unity-text-align: upper-center; top: 3%; left: 14%;" />
         <ui:Label tabindex="-1" text="cxvxcv&#10;vgdfgf" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Pattern" style="width: 25%; height: 41%; left: 20%; top: 14%; -unity-text-align: upper-center; -unity-font: url(&quot;project://database/Assets/Fonts/ComicMono.ttf?fileID=12800000&amp;guid=c8c4b86f39c3e734695b4875a853d71b&amp;type=3#ComicMono&quot;); -unity-font-definition: initial; font-size: 50px;" />
+        <ui:Label tabindex="-1" text="D=Daisy&#x9;? = Unknown&#10;B=Berry&#x9;&#10;R=Rose&#10;F=Daffodil" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 25%; height: 10%; left: 20%; top: 36%; font-size: 15px;" />
     </ui:VisualElement>
 </ui:UXML>
